@@ -11,7 +11,14 @@
     "core-js": "^2.6.5",
     "csvtojson": "^2.0.8",
     "d3": "^5.9.2",
-    "vue": "^2.6.10"
+    "google-maps-api-loader": "^1.1.1",
+    "leaflet": "^1.5.1",
+    "semantic-ui-vue": "^0.8.1",
+    "vue": "^2.6.10",
+    "vue-csv-import": "^2.3.3",
+    "vue-slider-component": "^3.0.31",
+    "vue2-leaflet": "^2.1.1",
+    "vuejs-datepicker": "^1.5.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.6.0",
