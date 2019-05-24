@@ -1,38 +1,61 @@
 <template>
   <div id="app">
-    <Main msg="Welcome to Your Vue.js App"/>
+    <Main
+      :countryCodeEurope="countryCodeEurope"
+      :stationsEurope="stationsEurope"
+      :temperatureMonthlyEurope="temperatureMonthlyEurope"
+    />
   </div>
 </template>
 
 <script>
-import Main from './components/Main.vue'
-import csvtojson from "csvtojson"
-
-const csvFilePath='../public/datasets/country-codes-europe.csv'
-const csv=require('csvtojson')
-csv()
-.fromFile(csvFilePath)
-.then((jsonObj)=>{
-    console.log(jsonObj);
-})
-
-const jsonArray=await csv().fromFile(csvFilePath);
+import * as d3 from "d3";
+import Main from "./components/Main.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     Main
+  },
+  data: function() {
+    return {
+      countryCodeEurope: [],
+      stationsEurope: [],
+      temperatureMonthlyEurope: []
+    };
+  },
+  mounted() {
+    console.log("App loaded");
+    this.fetchData();
+  },
+  methods: {
+    async fetchData() {
+      let countryCodeEurope = await d3.csv(
+        "./datasets/country-codes-europe.csv"
+      );
+      let stationsEurope = await d3.csv("./datasets/stations-europe.csv");
+      let temperatureMonthlyEurope = await d3.csv(
+        "./datasets/temperature-monthly-europe.csv"
+      );
+
+      this.countryCodeEurope = countryCodeEurope;
+      this.stationsEurope = stationsEurope;
+      this.temperatureMonthlyEurope = temperatureMonthlyEurope;
+    }
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+html,
+body, h3 {
+  margin: 0;
+  padding: 0;
 }
 </style>
