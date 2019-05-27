@@ -2,7 +2,7 @@
   <div id="body">
     <div class="container">
       <div class="elevation">
-        <p>Elevation:</p>
+        <p>Elevation: (meters)</p>
         <vue-slider
           :width="200"
           v-model="value"
