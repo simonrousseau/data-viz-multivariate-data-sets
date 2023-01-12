@@ -20,7 +20,7 @@
     "semantic-ui-vue": "^0.8.1",
     "vue": "^2.6.10",
     "vue-chartjs": "^3.4.2",
-    "vue-csv-import": "^2.3.3",
+    "vue-csv-import": "^2.5.0",
     "vue-slider-component": "^3.0.31",
     "vue2-leaflet": "^2.1.1",
     "vuejs-datepicker": "^1.5.4"
